@@ -1,0 +1,71 @@
+{
+  "name": "orchid-reproduction",
+  "version": "0.0.0",
+  "scripts": {
+    "commit": "cz",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "lint:js": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "lint:js:fix": "eslint . --cache --ext .js,.jsx,.ts,.tsx --fix",
+    "mrm": "mrm --preset=@bingtsingw/mrm-preset",
+    "prepare": "husky"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,html,css,md,json}": "prettier --check",
+    "**/*.{js,jsx,ts,tsx}": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-packagejson",
+      "prettier-plugin-organize-imports"
+    ],
+    "printWidth": 120,
+    "proseWrap": "never",
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "*.config.js"
+        ],
+        "rules": {
+          "@typescript-eslint/no-require-imports": "off",
+          "import/no-commonjs": "off"
+        }
+      }
+    ]
+  },
+  "eslintIgnore": [
+    "dist",
+    "build",
+    "out"
+  ],
+  "devDependencies": {
+    "@bingtsingw/mrm-preset": "^0.11.1",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "@types/node": "^20.11.19",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.56.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "mrm": "^4.1.22",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-packagejson": "^2.4.11",
+    "typescript": "^5.3.3"
+  }
+}
