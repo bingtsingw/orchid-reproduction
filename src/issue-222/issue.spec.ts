@@ -10,7 +10,7 @@ test('ok', async () => {
   const data = await db.city.select({
     activityCount: (q) =>
       q.activities //
-        .where((q) => q.members.count('activityId').gte(0))
+        .where((q) => q.members.count().gte(0))
         .count(),
   });
   expect(data).toEqual([{ activityCount: 1 }]);
@@ -25,7 +25,7 @@ test('issue', async () => {
   const data = await db.city.select({
     activityCount: (q) =>
       q.activities //
-        .where((q) => q.members.count('activityId').gte(1))
+        .where((q) => q.members.count().gte(1))
         .count(),
   });
   expect(data).toEqual([{ activityCount: 1 }]);
