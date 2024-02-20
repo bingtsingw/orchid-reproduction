@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "lib": ["ESNext"],
     "allowJs": true,
     "checkJs": true,
@@ -15,7 +15,10 @@
     "isolatedModules": true,
     "noUncheckedIndexedAccess": true,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@/src/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }

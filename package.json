@@ -35,6 +35,10 @@
     "trailingComma": "all"
   },
   "eslintConfig": {
+    "extends": [
+      "alloy",
+      "alloy/typescript"
+    ],
     "overrides": [
       {
         "files": [
@@ -52,14 +56,27 @@
     "build",
     "out"
   ],
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@xstools/utility": "^0.12.1",
+    "orchid-orm": "^1.21.6",
+    "orchid-orm-test-factory": "^0.4.7",
+    "rake-db": "^2.12.7"
+  },
   "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/eslint-parser": "^7.23.10",
     "@bingtsingw/mrm-preset": "^0.11.1",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
+    "@types/bun": "^1.0.6",
     "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
+    "eslint-config-alloy": "^5.1.2",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "mrm": "^4.1.22",
