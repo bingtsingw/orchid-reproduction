@@ -59,6 +59,7 @@
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
     "@xstools/utility": "^0.12.1",
+    "date-fns": "^3.3.1",
     "orchid-orm": "^1.23.2",
     "orchid-orm-test-factory": "^0.5.4",
     "rake-db": "^2.15.1"
