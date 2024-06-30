@@ -3,10 +3,10 @@ import { TableActivityMember } from './activity-member';
 import { TableCity } from './city';
 
 export class TableActivity extends BaseTable {
-  public readonly table = 'activity';
+  public override readonly table = 'activity';
   public readonly softDelete = true;
 
-  public columns = this.setColumns((t) => ({
+  public override columns = this.setColumns((t) => ({
     ...t.baseColumns(),
 
     cityId: t.varchar(),
@@ -15,14 +15,14 @@ export class TableActivity extends BaseTable {
   public relations = {
     city: this.belongsTo(() => TableCity, {
       required: false,
-      primaryKey: 'id',
-      foreignKey: 'cityId',
+      columns: ['cityId'],
+      references: ['id'],
     }),
 
     members: this.hasMany(() => TableActivityMember, {
       required: true,
-      primaryKey: 'id',
-      foreignKey: 'activityId',
+      columns: ['id'],
+      references: ['activityId'],
     }),
   };
 }

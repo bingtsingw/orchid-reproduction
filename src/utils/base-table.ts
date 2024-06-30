@@ -23,8 +23,8 @@ const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
     .nullable();
 const createdAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
-    .timestampsNoTZSnakeCase()
-    .createdAt.default(() => new Date().toISOString())
+    .timestampNoTZ()
+    .default(() => new Date().toISOString())
     .encode((value: Date | string) => {
       if (typeof value === 'string') {
         return new Date(value);
@@ -35,8 +35,8 @@ const createdAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
     .parse((v: any): Date => (v ? new Date(v) : v));
 const updatedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
-    .timestampsNoTZSnakeCase()
-    .updatedAt.default(() => new Date().toISOString())
+    .timestampNoTZ()
+    .default(() => new Date().toISOString())
     .encode((value: Date | string) => {
       if (typeof value === 'string') {
         return new Date(value);
@@ -54,14 +54,12 @@ export const BaseTable = createBaseTable({
     ...t,
 
     // alter internal methods
-    varchar: (length?: number) => t.varchar(length || 255),
-    text: (min = 0, max = Infinity) => t.text(min, max),
+    varchar: (limit?: number) => t.varchar(limit || 255),
 
     // extend internal methods
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     xEnum: <T extends Record<any, any>>(_: T) =>
       t
-        .varchar()
+        .string()
         .encode((v: T[keyof T]) => v)
         .parse((v) => v as unknown as T[keyof T]),
     xJsonText: () => t.jsonText().encode((v: Record<string, any> | any[]) => stringify(v)),

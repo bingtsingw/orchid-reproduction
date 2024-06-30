@@ -2,10 +2,10 @@ import { BaseTable } from '@/src/utils';
 import { TableUser } from './user';
 
 export class TableActivity extends BaseTable {
-  public readonly table = 'activity';
+  public override readonly table = 'activity';
   public readonly softDelete = true;
 
-  public columns = this.setColumns((t) => ({
+  public override columns = this.setColumns((t) => ({
     ...t.baseColumns(),
 
     userId: t.string(),
@@ -14,8 +14,8 @@ export class TableActivity extends BaseTable {
   public relations = {
     user: this.belongsTo(() => TableUser, {
       required: true,
-      primaryKey: 'id',
-      foreignKey: 'userId',
+      columns: ['userId'],
+      references: ['id'],
     }),
   };
 }

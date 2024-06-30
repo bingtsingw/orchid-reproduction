@@ -7,7 +7,8 @@ export const activityMember = createRepo(db.activityMember, {
       const query = q.where(
         raw({ raw: `("user"."vip"->>'to')::timestamp ${operator} '${date.toISOString()}'::timestamp` }),
       );
-      const isJoinUser = q.toSQL().text.search('LEFT JOIN "user"') !== -1;
+      // @ts-ignore
+      const isJoinUser = q.toSQL().search('LEFT JOIN "user"') !== -1;
       return isJoinUser ? query : query.leftJoin('user');
     },
   },

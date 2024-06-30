@@ -27,6 +27,7 @@ test('return type error', async () => {
   await dr.activityMember
     .whereByUserVipTo('>', new Date())
     .whereByUserVipTo('<', addDays(new Date(), 5))
+    // @ts-ignore
     .select('id', 'user.id');
   /**
    * The return type of `whereByUserVipTo` should always be `JoinAddSelectable<xxx>`,
@@ -37,6 +38,7 @@ test('return type error', async () => {
 test('return type error 2', async () => {
   let query = dr.activityMember.where({});
 
+  // @ts-ignore
   query = query.whereByUserVipTo('>', new Date()).whereByUserVipTo('<', addDays(new Date(), 5));
   console.log(query);
 });

@@ -1,4 +1,4 @@
-import { rakeDb } from 'rake-db';
+import { rakeDb } from 'orchid-orm/migrations';
 import { BaseTable, CONSTANT } from '../utils';
 
 export const change = rakeDb(
@@ -7,5 +7,6 @@ export const change = rakeDb(
     snakeCase: true,
     migrationsPath: './migrations',
     baseTable: BaseTable,
+    import: (path) => import(path),
   },
 );

@@ -23,9 +23,6 @@ importers:
       orchid-orm-test-factory:
         specifier: ^0.7.14
         version: 0.7.14
-      rake-db:
-        specifier: ^2.22.6
-        version: 2.22.6
     devDependencies:
       '@types/bun':
         specifier: ^1.1.6

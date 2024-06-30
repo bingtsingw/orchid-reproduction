@@ -37,8 +37,7 @@
     "@xstools/utility": "^0.13.2",
     "date-fns": "^3.6.0",
     "orchid-orm": "^1.32.6",
-    "orchid-orm-test-factory": "^0.7.14",
-    "rake-db": "^2.22.6"
+    "orchid-orm-test-factory": "^0.7.14"
   },
   "devDependencies": {
     "@types/bun": "^1.1.6",
