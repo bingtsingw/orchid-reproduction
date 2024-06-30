@@ -1,21 +1,6 @@
 {
+  "extends": "@xstools-dev/typescript-config/base/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ESNext"],
-    "allowJs": true,
-    "checkJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noUncheckedIndexedAccess": true,
-    "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
     "paths": {
       "@/src/*": ["./src/*"]
     }
