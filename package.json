@@ -36,14 +36,14 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "@xstools/utility": "^0.17.0",
     "date-fns": "^3.6.0",
-    "orchid-orm": "^1.32.16",
-    "orchid-orm-test-factory": "^0.7.23"
+    "orchid-orm": "^1.32.19",
+    "orchid-orm-test-factory": "^0.7.26"
   },
   "devDependencies": {
     "@types/bun": "^1.1.6",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.12",
     "@xstools-dev/mix": "^0.5.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@9.5.0"
 }
