@@ -8,7 +8,7 @@ export class TableActivityMember extends BaseTable {
   public override columns = this.setColumns((t) => ({
     ...t.baseColumns(),
 
-    activityId: t.varchar(),
+    activityId: t.string(),
   }));
 
   public relations = {

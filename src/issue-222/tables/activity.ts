@@ -9,7 +9,7 @@ export class TableActivity extends BaseTable {
   public override columns = this.setColumns((t) => ({
     ...t.baseColumns(),
 
-    cityId: t.varchar(),
+    cityId: t.string(),
   }));
 
   public relations = {

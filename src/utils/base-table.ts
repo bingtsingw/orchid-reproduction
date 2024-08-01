@@ -9,6 +9,12 @@ const cuid = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
     .primaryKey()
     .default(() => createId());
 
+const createdAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
+  t.timestampsNoTZ().createdAt.parse((v: any): Date => (v ? new Date(v) : v));
+
+const updatedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
+  t.timestampsNoTZ().updatedAt.parse((v: any): Date => (v ? new Date(v) : v));
+
 const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
     .timestampNoTZ()
@@ -21,30 +27,6 @@ const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
     })
     .parse((v: any): Date => (v ? new Date(v) : v))
     .nullable();
-const createdAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
-  t
-    .timestampNoTZ()
-    .default(() => new Date().toISOString())
-    .encode((value: Date | string) => {
-      if (typeof value === 'string') {
-        return new Date(value);
-      } else {
-        return value;
-      }
-    })
-    .parse((v: any): Date => (v ? new Date(v) : v));
-const updatedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
-  t
-    .timestampNoTZ()
-    .default(() => new Date().toISOString())
-    .encode((value: Date | string) => {
-      if (typeof value === 'string') {
-        return new Date(value);
-      } else {
-        return value;
-      }
-    })
-    .parse((v: any): Date => (v ? new Date(v) : v));
 
 export const BaseTable = createBaseTable({
   snakeCase: true,
@@ -52,9 +34,6 @@ export const BaseTable = createBaseTable({
 
   columnTypes: (t) => ({
     ...t,
-
-    // alter internal methods
-    varchar: (limit?: number) => t.varchar(limit || 255),
 
     // extend internal methods
     xEnum: <T extends Record<any, any>>(_: T) =>

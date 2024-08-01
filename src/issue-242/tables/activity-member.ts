@@ -9,8 +9,8 @@ export class TableActivityMember extends BaseTable {
   public override columns = this.setColumns((t) => ({
     ...t.baseColumns(),
 
-    activityId: t.varchar(),
-    userId: t.varchar(),
+    activityId: t.string(),
+    userId: t.string(),
   }));
 
   public relations = {
